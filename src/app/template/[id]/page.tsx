@@ -5,12 +5,12 @@ import Resume from '../_components/resume'
 
 async function TemplatePreview( {params} : {
     params : {
-        id: string
-    }
+        id: string;
+    };
   }
 ) {
 
-  const {id} = await params;
+  const {id} = params;
 
     const response = await getTemplateById(id);
   return (
