@@ -70,15 +70,19 @@
 
 import { getStripeClientSecret } from "@/server-actions/payments";
 import usersGlobalStore, { IUsersStore } from "@/store/users-store";
-import { Button, message } from "antd";
+import { Button } from "antd";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-);
+
+
 import React from "react";
 import dayjs from "dayjs";
 import CheckoutFormModal from "./checkout-form-modal";
+import toast from "react-hot-toast";
+
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+);
 
 function UserSubscription() {
   const { currentUserData }: IUsersStore = usersGlobalStore() as any;
@@ -95,10 +99,10 @@ function UserSubscription() {
         setClientSecret(response.data);
         setShowCheckoutFormModal(true);
       } else {
-        message.error(response.message);
+        toast.error(response.message);
       }
     } catch (error: any) {
-      message.error(error.message);
+      toast.error(error.message);
     } finally {
       setLoading(false);
     }

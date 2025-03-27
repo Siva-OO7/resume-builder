@@ -215,7 +215,7 @@ function Education() {
                     {/* Year Fields in Single Row */}
                     <div className="grid grid-cols-2 gap-5 items-end">
                       {/* Start Year Field */}
-                      <Form.Item
+                      {/* <Form.Item
                         label="Start Year"
                         name={[field.name, "startYear"]}
                         rules={[{ required: true, message: "Please select start year" }]}
@@ -226,11 +226,15 @@ function Education() {
                           format="YYYY"
                           placeholder="Select start year"
                         />
+                      </Form.Item> */}
+
+                      <Form.Item label='Start Date' name={[field.name, "startDate"]}>
+                        <Input />
                       </Form.Item>
 
                       {/* End Year Field */}
-                      <Form.Item
-                        label="End Year"
+                      {/* <Form.Item
+                        label="End date"
                         name={[field.name, "endYear"]}
                         rules={[{ required: true, message: "Please select end year" }]}
                       >
@@ -240,6 +244,9 @@ function Education() {
                           format="YYYY"
                           placeholder="Select end year"
                         />
+                      </Form.Item> */}
+                      <Form.Item label='End Date' name={[field.name, 'endDate']}>
+                        <Input />
                       </Form.Item>
                     </div>
 

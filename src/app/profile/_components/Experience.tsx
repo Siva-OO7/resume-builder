@@ -6,7 +6,7 @@ import React from "react";
 function Experience(){
     return (
         <div className="mt-5">
-            <Form.List name={'education'}>
+            <Form.List name={'experience'}>
                 {
                     (fields, {add, remove})=> {
                         return <div>
@@ -27,8 +27,11 @@ function Experience(){
                                             <Form.Item label="Role" name={[field.name, "role"]}>
                                                 <Input />
                                             </Form.Item>
-                                            <Form.Item label="Start Date" name={[field.name, "startDate"]}>
+                                            {/* <Form.Item label="Start Date" name={[field.name, "startDate"]}>
                                                 <Input type="date" />
+                                            </Form.Item> */}
+                                            <Form.Item label="Start Date" name={[field.name, "startDate"]}>
+                                                <Input  />
                                             </Form.Item>
                                             <Form.Item label="End Date" name={[field.name, "endDate"]}>
                                                 <Input  />

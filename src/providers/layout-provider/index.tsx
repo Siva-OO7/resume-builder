@@ -97,11 +97,12 @@
 import { getCurrentUserFromMongoDB } from "@/server-actions/users";
 import usersGlobalStore, { IUsersStore } from "@/store/users-store";
 import { UserButton } from "@clerk/nextjs";
-import { message } from "antd";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import React from "react";
 import AdminMenu from "./admin-menu";
 import Spinner from "@/app/profile/_components/Spinner";
+import toast from "react-hot-toast";
+
 
 function LayoutProvider({ children }: { children: React.ReactNode }) {
   const [isLaoding, setIsLoading] = React.useState(false);
@@ -123,11 +124,11 @@ function LayoutProvider({ children }: { children: React.ReactNode }) {
       if (response.success) {
         setCurrentUserData(response.data);
       } else {
-        message.error(response.message);
+        toast.error(response.message);
         setError(response.message);
       }
     } catch (error: any) {
-      message.error(error.message);
+      toast.error(error.message);
       setError(error.message);
     } finally {
       setIsLoading(false);
